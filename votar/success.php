@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (!$_SESSION["success"]) {
-    header("location:../votar");
-} else {
+if (isset($_SESSION["success"])) {
     session_destroy();
+} else {
+    header("location:../votar");
 }
 
 ?>

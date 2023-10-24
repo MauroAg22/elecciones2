@@ -1,10 +1,24 @@
 <?php
 session_start();
+
 if (isset($_SESSION["login"])) {
     header("location:gestion.php");
 } else {
     session_destroy();
 }
+
+if ($_POST) {
+    $usuario = $_POST["usuario"];
+    $contrasenia = $_POST["contrasenia"];
+    if ($usuario == "MauroLucero" && $contrasenia == "12345") {
+        session_start();
+        $_SESSION["usuario"] = $usuario;
+        $_SESSION["contrasenia"] = $contrasenia;
+        $_SESSION["login"] = true;
+        header("location:gestion.php");
+    }
+}
+
 ?>
 
 <?php include "../navbar/head-general.php"; ?>
@@ -34,15 +48,7 @@ if (isset($_SESSION["login"])) {
             </div>
             <?php
             if ($_POST) {
-                $usuario = $_POST["usuario"];
-                $contrasenia = $_POST["contrasenia"];
-                if ($usuario == "MauroLucero" && $contrasenia == "12345") {
-                    session_start();
-                    $_SESSION["usuario"] = $usuario;
-                    $_SESSION["contrasenia"] = $contrasenia;
-                    $_SESSION["login"] = true;
-                    header("location:gestion.php");
-                } else {
+                if (!($usuario == "MauroLucero" && $contrasenia == "12345")) {
                     include "incorrecto.php";
                 }
             }
