@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap" rel="stylesheet">
     <!-- Mis estilos -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -21,10 +21,10 @@
 
         <nav class="navbar navbar-dark bg-primary">
             <div class="container-fluid user-select-none">
-                <span class="navbar-text h4 letra-blanca">
+                <span class="navbar-text large letra-blanca">
                     Elecciones Presidenciales Argentina
                 </span>
-                <span class="navbar-text h4 letra-blanca">
+                <span class="navbar-text large letra-blanca">
                     <?php echo date("d-m-Y"); ?>
                 </span>
             </div>
@@ -32,4 +32,4 @@
     </header>
 
     <main>
-    <div class="container main pt-5 pb-5">
+        <div class="container main pt-5 pb-5">
