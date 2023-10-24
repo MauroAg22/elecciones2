@@ -18,13 +18,12 @@
 
 <body>
     <header id="miHeader">
-
         <nav class="navbar navbar-dark bg-primary">
             <div class="container-fluid user-select-none">
-                <span class="navbar-text large letra-blanca">
+                <span class="navbar-brand fs-4">
                     Elecciones Presidenciales Argentina
                 </span>
-                <span class="navbar-text large letra-blanca">
+                <span class="navbar-brand fs-4">
                     <?php echo date("d-m-Y"); ?>
                 </span>
             </div>

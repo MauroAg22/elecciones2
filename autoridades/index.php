@@ -1,13 +1,13 @@
 <?php
 session_start();
-
 if (isset($_SESSION["login"])) {
     header("location:gestion.php");
+} else {
+    session_destroy();
 }
-
 ?>
 
-<?php include "../navbar/head.php"; ?>
+<?php include "../navbar/head-general.php"; ?>
 
 <form action="index.php" method="post">
     <div class="row justify-content-center align-items-center">
@@ -32,30 +32,23 @@ if (isset($_SESSION["login"])) {
                     </div>
                 </div>
             </div>
-
             <?php
-
             if ($_POST) {
                 $usuario = $_POST["usuario"];
                 $contrasenia = $_POST["contrasenia"];
-
                 if ($usuario == "MauroLucero" && $contrasenia == "12345") {
-
                     session_start();
                     $_SESSION["usuario"] = $usuario;
                     $_SESSION["contrasenia"] = $contrasenia;
                     $_SESSION["login"] = true;
-
                     header("location:gestion.php");
                 } else {
                     include "incorrecto.php";
                 }
             }
-
             ?>
-
         </div>
     </div>
 </form>
 
-<?php include "../navbar/footer.php"; ?>
+<?php include "../navbar/footer-general.php"; ?>

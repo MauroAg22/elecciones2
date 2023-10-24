@@ -2,13 +2,13 @@
 session_start();
 
 if (!$_SESSION["login"]) {
-    header("location:index.php");
+    header("location:../autoridades");
 }
 
 ?>
 
-<?php include "../navbar/head-autoridades.php"; ?>
+<?php include "../navbar/head-atd.php"; ?>
 
 
 
-<?php include "../navbar/footer.php"; ?>
+<?php include "../navbar/footer-atd.php"; ?>

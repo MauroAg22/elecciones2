@@ -18,38 +18,19 @@
 
 <body>
     <header id="miHeader">
-
-
-        <!-- <nav class="navbar fixed-top navbar-expand-lg bg-light">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-                <span class="navbar-brand">Elecciones Argentina</span>
+                <a class="navbar-brand fs-4" href="gestion.php">Sistema Autoridades</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" href="gestion.php" aria-current="page">Inicio</a>
-                        <a class="nav-link" href="#">Features</a>
-                        <a class="nav-link" href="#">Pricing</a>
-                        <a class="nav-link" href="cerrar-session.php">Cerrar Sesión</a>
+                        <a class="nav-link fs-5" href="#">Features</a>
+                        <a class="nav-link fs-5" href="#">Pricing</a>
+                        <a class="nav-link fs-5" href="cerrar-session.php">Cerrar Sesión</a>
                     </div>
                 </div>
-            </div>
-        </nav> -->
-
-
-        <nav class="navbar navbar-dark bg-primary">
-            <div class="container-fluid user-select-none">
-                <span class="navbar-text letra-blanca large">
-                    Elecciones Presidenciales Argentina
-                </span>
-
-                <nav class="nav justify-content-center">
-                    <a class="nav-link letra-blanca large" href="gestion.php" aria-current="page">Inicio</a>
-                    <a class="nav-link letra-blanca large" href="#">Link</a>
-                    <a class="nav-link letra-blanca large" href="cerrar-session.php">Cerrar Sesión</a>
-                </nav>
-
             </div>
         </nav>
     </header>
