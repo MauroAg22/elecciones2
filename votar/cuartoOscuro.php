@@ -2,7 +2,7 @@
 
 session_start();
 
-$_SESSION["login"] = true;
+$_SESSION["votar"] = true;
 
 header("location:votar.php");
 
