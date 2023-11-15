@@ -31,21 +31,27 @@ class conexion
         return $this->conexion->lastInsertId();
     }
 
-    public function consultar($sql, $parametros = [])
+
+    public function consultar($sql)
     {
         $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute($parametros);
+        $sentencia->execute();
         return $sentencia->fetchAll();
     }
 
     public function esta_dni($un_dni)
     {
-        $sql = 'SELECT `dni` FROM `padron` WHERE `dni` = :dni';
-        $parametros = [':dni' => $un_dni];
-        $respuesta = $this->consultar($sql, $parametros);
+        $sql = 'select `dni` from `padron` where `dni` = "' . $un_dni . '";';
+        $respuesta = $this->consultar($sql);
 
-        return !empty($respuesta);
+        if (empty($respuesta)) {
+            return false;
+        } else {
+            if ($un_dni == $respuesta[0][0]) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }
-
-?>
