@@ -6,10 +6,22 @@ if (!$_SESSION["votar"]) {
 }
 
 if ($_POST) {
+    $dni = $_SESSION["dni"];
+    $mi_voto = $_POST["voto"];
+
+    include "../database/clases.php";
+
+    $votar = new conexion();
+
+    $votar->efectuar_voto($mi_voto);
+
+    $votar->registrar_votante($dni);
+
+    $votar->desconectar();
+
     session_destroy();
     session_start();
     $_SESSION["success"] = true;
-
     header("location:success.php");
 }
 

@@ -31,7 +31,6 @@ class conexion
         return $this->conexion->lastInsertId();
     }
 
-
     public function consultar($sql)
     {
         $sentencia = $this->conexion->prepare($sql);
@@ -41,17 +40,16 @@ class conexion
 
     public function esta_dni($un_dni)
     {
-        $sql = 'select `dni` from `padron` where `dni` = "' . $un_dni . '";';
-        $respuesta = $this->consultar($sql);
+        $sql = "SELECT CASE WHEN EXISTS (SELECT 1 FROM `padron` where `dni` = '$un_dni') THEN '1' ELSE '0' END AS resultado;";
+        $existeDNI = $this->consultar($sql);
 
-        if (empty($respuesta)) {
-            return false;
-        } else {
-            if ($un_dni == $respuesta[0][0]) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        return $existeDNI;
+    }
+
+    public function voto_dni($un_dni)
+    {
+        $sql2 = 'SELECT `voto` FROM `padron` WHERE `dni` = "' . $un_dni . '";';
+        $respuesta1 = $this->consultar($sql2);
+        return $respuesta1;
     }
 }

@@ -30,13 +30,39 @@ if (isset($_SESSION["login"])) {
                 </div>
             </div>
             <?php
+
             if ($_POST) {
+
+                include "../database/clases.php";
+                $votar = new conexion();
+
                 $dni = $_POST["dni"];
-                if ($dni == "40319143") {
-                    include "puede-votar.php";
+                $_SESSION["dni"] = $dni;
+
+                
+                // $sql = 'select `dni` from `padron` where `dni` = "' . $dni . '";';
+
+                $respuesta = $votar->esta_dni($dni);
+
+                if ($respuesta) {
+                    if (!($votar->voto_dni($dni))) {
+                        include "puede-votar.php";
+                    } else {
+                        include "ya-voto.php";
+                    }
                 } else {
                     include "no-puede-votar.php";
                 }
+
+
+                
+                // if ($dni == $respuesta) {
+                //     include "puede-votar.php";
+                // } else {
+                //     include "no-puede-votar.php";
+                // }
+
+                $votar->desconectar();
             }
             ?>
         </div>

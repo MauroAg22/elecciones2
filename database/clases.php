@@ -31,21 +31,41 @@ class conexion
         return $this->conexion->lastInsertId();
     }
 
-    public function consultar($sql, $parametros = [])
+    public function consultar($sql)
     {
         $sentencia = $this->conexion->prepare($sql);
-        $sentencia->execute($parametros);
+        $sentencia->execute();
         return $sentencia->fetchAll();
     }
 
     public function esta_dni($un_dni)
     {
-        $sql = 'SELECT `dni` FROM `padron` WHERE `dni` = :dni';
-        $parametros = [':dni' => $un_dni];
-        $respuesta = $this->consultar($sql, $parametros);
+        $sql = "SELECT CASE WHEN EXISTS (SELECT 1 FROM `padron` where `dni` = '$un_dni') THEN '1' ELSE '0' END AS resultado;";
+        $existeDNI = $this->consultar($sql);
 
-        return !empty($respuesta);
+        return $existeDNI[0][0];
+    }
+
+    public function voto_dni($un_dni)
+    {
+        $sql2 = 'SELECT `voto` FROM `padron` WHERE `dni` = "' . $un_dni . '";';
+        $respuesta1 = $this->consultar($sql2);
+        return $respuesta1[0][0];
+    }
+
+    public function efectuar_voto($mi_voto)
+    {
+        $sql = "INSERT INTO `urna` (`" . $mi_voto . "`) VALUES ('1');";
+        $this->ejecutar($sql);
+    }
+
+    public function registrar_votante($un_dni) {
+        $sql = "UPDATE `padron` SET `voto` = '1' WHERE `id` = (SELECT `id` FROM `padron` WHERE `dni` = '" . $un_dni . "');";
+        $this->ejecutar($sql);
+    }
+
+    public function  conteo_votos($candidato) {
+        $sql = 'SELECT COUNT("' . $candidato . '") AS total FROM urna;';
+        return $this->consultar($sql)[0][0];
     }
 }
-
-?>
