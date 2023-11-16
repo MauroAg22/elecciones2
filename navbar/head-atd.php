@@ -1,3 +1,15 @@
+<?php
+
+$pagActual = basename($_SERVER['PHP_SELF']);
+
+function active($pagActual, $url)
+{
+    echo ($pagActual == $url) ? "active" : "";
+}
+
+?>
+
+
 <!doctype html>
 <html lang="es">
 
@@ -26,8 +38,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link fs-5" href="#">Features</a>
-                        <a class="nav-link fs-5" href="#">Pricing</a>
+                        <a class="nav-link fs-5 <?php active($pagActual, "tablas.php") ?>" href="tablas.php">Ver tablas</a>
+                        <a class="nav-link fs-5 <?php active($pagActual, "resultados.php") ?>" href="resultados.php">Ver resultados</a>
                         <a class="nav-link fs-5" href="cerrar-session.php">Cerrar Sesión</a>
                     </div>
                 </div>
