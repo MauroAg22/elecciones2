@@ -16,7 +16,9 @@ INSERT INTO `urna` (`bregman`, `bullrich`, `massa`, `milei`, `schiaretti`, `blan
 
 INSERT INTO `urna` (`massa`) VALUES ('1');
 
-UPDATE `padron` SET `voto` = '0' WHERE `id` = (SELECT `id` FROM `padron` WHERE `dni` = '41221919');
+UPDATE `padron` SET `voto` = '0' WHERE `id` = (SELECT `id` FROM `padron` WHERE `dni` = '40319143');
+
+SELECT COUNT("milei") AS total FROM urna;
 
 select `id` from `padron`
 where `dni` = "41221919";

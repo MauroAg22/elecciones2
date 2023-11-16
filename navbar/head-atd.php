@@ -26,6 +26,7 @@ function active($pagActual, $url)
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap" rel="stylesheet">
     <!-- Mis estilos -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style2.css">
 </head>
 
 <body>

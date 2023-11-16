@@ -8,7 +8,7 @@ if (!$_SESSION["login"]) {
 include "../database/clases.php";
 
 $objConexion = new conexion();
-$personas = $objConexion->consultar("SELECT * FROM `padron`");
+$personas = $objConexion->consultar("SELECT * FROM `padron` ORDER BY `apellido` ASC");
 
 ?>
 

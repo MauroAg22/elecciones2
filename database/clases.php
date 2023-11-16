@@ -65,7 +65,7 @@ class conexion
     }
 
     public function  conteo_votos($candidato) {
-        $sql = 'SELECT COUNT("' . $candidato . '") AS total FROM urna;';
+        $sql = 'SELECT COUNT(' . $candidato . ') AS total FROM urna;';
         return $this->consultar($sql)[0][0];
     }
 }

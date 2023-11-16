@@ -1,0 +1,11 @@
+.urgencia {
+    cursor: none;
+    transition: none;
+}
+
+.urgencia:hover {
+    box-shadow: none;
+    transform: none;
+    transition: none;
+    cursor: default;
+}
