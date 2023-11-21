@@ -18,12 +18,12 @@ $cantVotosBlanco = $objConexion->conteo_votos("blanco");
 
 $cantVotosTotales = $cantVotosBregman + $cantVotosBullrich + $cantVotosMassa + $cantVotosMilei + $cantVotosSchiaretti + $cantVotosBlanco;
 
-$promedioVotosBregman = number_format($cantVotosBregman / $cantVotosTotales * 100);
-$promedioVotosBullrich = number_format($cantVotosBullrich / $cantVotosTotales * 100);
-$promedioVotosMassa = number_format($cantVotosMassa / $cantVotosTotales * 100);
-$promedioVotosMilei = number_format($cantVotosMilei / $cantVotosTotales * 100);
-$promedioVotosSchiaretti = number_format($cantVotosSchiaretti / $cantVotosTotales * 100);
-$promedioVotosBlanco = number_format($cantVotosBlanco / $cantVotosTotales * 100);
+$promedioVotosBregman = number_format($cantVotosBregman / $cantVotosTotales * 100, 2);
+$promedioVotosBullrich = number_format($cantVotosBullrich / $cantVotosTotales * 100, 2);
+$promedioVotosMassa = number_format($cantVotosMassa / $cantVotosTotales * 100, 2);
+$promedioVotosMilei = number_format($cantVotosMilei / $cantVotosTotales * 100, 2);
+$promedioVotosSchiaretti = number_format($cantVotosSchiaretti / $cantVotosTotales * 100, 2);
+$promedioVotosBlanco = number_format($cantVotosBlanco / $cantVotosTotales * 100, 2);
 
 
 
