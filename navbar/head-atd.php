@@ -33,14 +33,15 @@ function active($pagActual, $url)
     <header id="miHeader">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand fs-4" href="gestion.php">Sistema Autoridades</a>
+                <!-- <a class="navbar-brand fs-4" href="gestion.php">Gestión Electoral</a> -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link fs-5 <?php active($pagActual, "tablas.php") ?>" href="tablas.php">Ver tablas</a>
-                        <a class="nav-link fs-5 <?php active($pagActual, "resultados.php") ?>" href="resultados.php">Ver resultados</a>
+                        <a class="nav-link fs-5 <?php active($pagActual, "gestion.php") ?>" href="gestion.php">Administración</a>
+                        <a class="nav-link fs-5 <?php active($pagActual, "padron.php") ?>" href="padron.php">Padrón</a>
+                        <a class="nav-link fs-5 <?php active($pagActual, "resultados.php") ?>" href="resultados.php">Resultados</a>
                         <a class="nav-link fs-5" href="cerrar-session.php">Cerrar Sesión</a>
                     </div>
                 </div>

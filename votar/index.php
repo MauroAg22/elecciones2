@@ -34,7 +34,7 @@ if (isset($_SESSION["login"])) {
             if ($_POST) {
 
                 include "../database/clases.php";
-                $votar = new conexion();
+                $objConsultas = new consultas();
 
                 $dni = $_POST["dni"];
                 $_SESSION["dni"] = $dni;
@@ -42,10 +42,10 @@ if (isset($_SESSION["login"])) {
                 
                 // $sql = 'select `dni` from `padron` where `dni` = "' . $dni . '";';
 
-                $respuesta = $votar->esta_dni($dni);
+                $respuesta = $objConsultas->esta_dni($dni);
 
                 if ($respuesta) {
-                    if (!($votar->voto_dni($dni))) {
+                    if (!($objConsultas->voto_dni($dni))) {
                         include "puede-votar.php";
                     } else {
                         include "ya-voto.php";
@@ -62,7 +62,7 @@ if (isset($_SESSION["login"])) {
                 //     include "no-puede-votar.php";
                 // }
 
-                $votar->desconectar();
+                $objConsultas->desconectar();
             }
             ?>
         </div>

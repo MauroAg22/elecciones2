@@ -11,13 +11,13 @@ if ($_POST) {
 
     include "../database/clases.php";
 
-    $votar = new conexion();
+    $objConsultas = new consultas();
 
-    $votar->efectuar_voto($mi_voto);
+    $objConsultas->efectuar_voto($mi_voto);
 
-    $votar->registrar_votante($dni);
+    $objConsultas->registrar_votante($dni);
 
-    $votar->desconectar();
+    $objConsultas->desconectar();
 
     session_destroy();
     session_start();
