@@ -39,9 +39,6 @@ if (isset($_SESSION["login"])) {
                 $dni = $_POST["dni"];
                 $_SESSION["dni"] = $dni;
 
-                
-                // $sql = 'select `dni` from `padron` where `dni` = "' . $dni . '";';
-
                 $respuesta = $objConsultas->esta_dni($dni);
 
                 if ($respuesta) {
@@ -54,16 +51,9 @@ if (isset($_SESSION["login"])) {
                     include "no-puede-votar.php";
                 }
 
-
-                
-                // if ($dni == $respuesta) {
-                //     include "puede-votar.php";
-                // } else {
-                //     include "no-puede-votar.php";
-                // }
-
                 $objConsultas->desconectar();
             }
+
             ?>
         </div>
     </div>
