@@ -46,6 +46,7 @@ if ($_POST) {
                     </div>
                 </div>
             </div>
+
             <?php
             if ($_POST) {
                 if (!($usuario == "MauroLucero" && $contrasenia == "12345")) {

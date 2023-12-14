@@ -30,30 +30,14 @@ if (isset($_SESSION["login"])) {
                 </div>
             </div>
             <?php
-
             if ($_POST) {
-
                 include "../database/clases.php";
                 $objConsultas = new consultas();
-
                 $dni = $_POST["dni"];
                 $_SESSION["dni"] = $dni;
-
-                $respuesta = $objConsultas->esta_dni($dni);
-
-                if ($respuesta) {
-                    if (!($objConsultas->voto_dni($dni))) {
-                        include "puede-votar.php";
-                    } else {
-                        include "ya-voto.php";
-                    }
-                } else {
-                    include "no-puede-votar.php";
-                }
-
+                $objConsultas->alertaPuedeVotar($dni);
                 $objConsultas->desconectar();
             }
-
             ?>
         </div>
     </div>

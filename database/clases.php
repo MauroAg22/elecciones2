@@ -65,7 +65,7 @@ class consultas extends conexion
         return $respuesta1[0][0];
     }
 
-    public function efectuar_voto($mi_voto)
+    public function insertar_voto($mi_voto)
     {
         $sql = "INSERT INTO `urna` (`" . $mi_voto . "`) VALUES ('1');";
         $this->ejecutar($sql);
@@ -81,6 +81,19 @@ class consultas extends conexion
     {
         $sql = 'SELECT COUNT(' . $candidato . ') AS total FROM urna;';
         return $this->consultar($sql)[0][0];
+    }
+
+    public function alertaPuedeVotar($dni)
+    {
+        if ($this->esta_dni($dni)) {
+            if (!($this->voto_dni($dni))) {
+                include "../votar/puede-votar.php";
+            } else {
+                include "../votar/ya-voto.php";
+            }
+        } else {
+            include "../votar/no-puede-votar.php";
+        }
     }
 }
 
@@ -111,5 +124,10 @@ class candidatos extends consultas
         $this->promedioVotosMilei = number_format($this->cantVotosMilei / $this->cantVotosTotales * 100, 2);
         $this->promedioVotosSchiaretti = number_format($this->cantVotosSchiaretti / $this->cantVotosTotales * 100, 2);
         $this->promedioVotosBlanco = number_format($this->cantVotosBlanco / $this->cantVotosTotales * 100, 2);
+    }
+
+    public function resultadoVotosTexto($cantVotos)
+    {
+        return ($cantVotos == 1) ? "$cantVotos VOTO" : "$cantVotos VOTOS";
     }
 }

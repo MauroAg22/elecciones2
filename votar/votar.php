@@ -12,15 +12,13 @@ if ($_POST) {
     include "../database/clases.php";
 
     $objConsultas = new consultas();
-
-    $objConsultas->efectuar_voto($mi_voto);
-
+    $objConsultas->insertar_voto($mi_voto);
     $objConsultas->registrar_votante($dni);
-
     $objConsultas->desconectar();
 
     session_destroy();
     session_start();
+    
     $_SESSION["success"] = true;
     header("location:success.php");
 }

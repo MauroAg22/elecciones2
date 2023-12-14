@@ -9,7 +9,9 @@ include "../database/clases.php";
 
 $objCandidatos = new candidatos();
 
-
+function resultadoVotosTexto($cantVotos) {
+    return ($cantVotos == 1) ? "$cantVotos VOTO" : "$cantVotos VOTOS";
+}
 
 ?>
 
@@ -29,7 +31,7 @@ $objCandidatos = new candidatos();
                         </div>
                         <div style="width: 100%;" class="d-flex justify-content-evenly fs-5 user-select-none mt-2">
                             <span> <?php echo $objCandidatos->promedioVotosBregman; ?>% </span>
-                            <span> <?php echo $objCandidatos->cantVotosBregman; ?> VOTOS </span>
+                            <span> <?php echo $objCandidatos->resultadoVotosTexto($objCandidatos->cantVotosBregman); ?> </span>
                         </div>
                     </div>
                 </div>
@@ -41,7 +43,7 @@ $objCandidatos = new candidatos();
                         </div>
                         <div style="width: 100%;" class="d-flex justify-content-evenly fs-5 user-select-none mt-2">
                             <span> <?php echo $objCandidatos->promedioVotosBullrich; ?>% </span>
-                            <span> <?php echo $objCandidatos->cantVotosBullrich; ?> VOTOS </span>
+                            <span> <?php echo $objCandidatos->resultadoVotosTexto($objCandidatos->cantVotosBullrich); ?> </span>
                         </div>
                     </div>
                 </div>
@@ -51,13 +53,10 @@ $objCandidatos = new candidatos();
                         <div class="progress border mb-2" style="height: 40px; width:100%">
                             <div class="progress-bar bg-success" role="progressbar" aria-label="Example 20px label" style="width: <?php echo $objCandidatos->promedioVotosMassa; ?>%;" aria-valuenow="<?php echo $objCandidatos->promedioVotosMassa; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-
                         <div style="width: 100%;" class="d-flex justify-content-evenly fs-5 user-select-none mt-2">
                             <span> <?php echo $objCandidatos->promedioVotosMassa; ?>% </span>
-                            <span> <?php echo $objCandidatos->cantVotosMassa; ?> VOTOS</span>
+                            <span> <?php echo $objCandidatos->resultadoVotosTexto($objCandidatos->cantVotosMassa); ?> </span>
                         </div>
-
-                        
                     </div>
                 </div>
                 <div class="col d-flex justify-content-center">
@@ -66,13 +65,10 @@ $objCandidatos = new candidatos();
                         <div class="progress border mb-2" style="height: 40px; width:100%">
                             <div class="progress-bar bg-success" role="progressbar" aria-label="Example 20px label" style="width: <?php echo $objCandidatos->promedioVotosMilei; ?>%;" aria-valuenow="<?php echo $objCandidatos->promedioVotosMilei; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-
                         <div style="width: 100%;" class="d-flex justify-content-evenly fs-5 user-select-none mt-2">
                             <span> <?php echo $objCandidatos->promedioVotosMilei; ?>% </span>
-                            <span> <?php echo $objCandidatos->cantVotosMilei; ?> VOTOS</span>
+                            <span> <?php echo $objCandidatos->resultadoVotosTexto($objCandidatos->cantVotosMilei); ?> </span>
                         </div>
-
-                        
                     </div>
                 </div>
                 <div class="col d-flex justify-content-center">
@@ -81,13 +77,10 @@ $objCandidatos = new candidatos();
                         <div class="progress border mb-2" style="height: 40px; width:100%">
                             <div class="progress-bar bg-success" role="progressbar" aria-label="Example 20px label" style="width: <?php echo $objCandidatos->promedioVotosSchiaretti; ?>%;" aria-valuenow="<?php echo $objCandidatos->promedioVotosSchiaretti; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-
                         <div style="width: 100%;" class="d-flex justify-content-evenly fs-5 user-select-none mt-2">
                             <span> <?php echo $objCandidatos->promedioVotosSchiaretti; ?>% </span>
-                            <span> <?php echo $objCandidatos->cantVotosSchiaretti; ?> VOTOS</span>
+                            <span> <?php echo $objCandidatos->resultadoVotosTexto($objCandidatos->cantVotosSchiaretti); ?> </span>
                         </div>
-
-                        
                     </div>
                 </div>
                 <div class="col d-flex justify-content-center">
@@ -96,13 +89,10 @@ $objCandidatos = new candidatos();
                         <div class="progress border mb-2" style="height: 40px; width:100%">
                             <div class="progress-bar bg-success" role="progressbar" aria-label="Example 20px label" style="width: <?php echo $objCandidatos->promedioVotosBlanco; ?>%;" aria-valuenow="<?php echo $objCandidatos->promedioVotosBlanco; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-
                         <div style="width: 100%;" class="d-flex justify-content-evenly fs-5 user-select-none mt-2">
                             <span> <?php echo $objCandidatos->promedioVotosBlanco; ?>% </span>
-                            <span> <?php echo $objCandidatos->cantVotosBlanco; ?> VOTOS</span>
+                            <span> <?php echo $objCandidatos->resultadoVotosTexto($objCandidatos->cantVotosBlanco); ?> </span>
                         </div>
-
-                        
                     </div>
                 </div>
             </div>
