@@ -24,7 +24,8 @@
                     Elecciones Presidenciales Argentina
                 </span>
                 <span class="navbar-brand fs-4">
-                    <?php echo date("d-m-Y"); ?>
+                    <?php // echo date("d-m-Y H:i"); ?>
+                    22-10-2023
                 </span>
             </div>
         </nav>

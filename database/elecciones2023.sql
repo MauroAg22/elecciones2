@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2023 a las 01:57:27
+-- Tiempo de generación: 15-12-2023 a las 15:37:24
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -40,9 +40,9 @@ CREATE TABLE `padron` (
 --
 
 INSERT INTO `padron` (`id`, `nombre`, `apellido`, `dni`, `voto`) VALUES
-(1, 'Mauro Agustín', 'Lucero', '40319143', 0),
-(3, 'Nerio Fernando', 'Lucero', '18206248', 0),
-(84, 'Juan', 'Perez', '12345678', 0),
+(1, 'Mauro Agustín', 'Lucero', '40319143', 1),
+(3, 'Nerio Fernando', 'Lucero', '18206248', 1),
+(84, 'Juan', 'Perez', '12345678', 1),
 (85, 'María', 'González', '23456789', 0),
 (86, 'Carlos', 'López', '34567890', 0),
 (87, 'Laura', 'Martínez', '45678901', 0),
@@ -53,9 +53,9 @@ INSERT INTO `padron` (`id`, `nombre`, `apellido`, `dni`, `voto`) VALUES
 (92, 'Diego', 'Hernández', '90123456', 0),
 (93, 'Valentina', 'Suárez', '11223344', 1),
 (94, 'Sebastián', 'Ramírez', '22334455', 1),
-(95, 'Camila', 'Torres', '33445566', 0),
+(95, 'Camila', 'Torres', '33445566', 1),
 (96, 'Facundo', 'Cabrera', '44556677', 1),
-(97, 'Agustina', 'Sánchez', '55667788', 0),
+(97, 'Agustina', 'Sánchez', '55667788', 1),
 (98, 'Ezequiel', 'Moreno', '66778899', 0),
 (99, 'Catalina', 'Luna', '77889900', 0),
 (100, 'Ignacio', 'Giménez', '88990011', 0),
@@ -65,14 +65,14 @@ INSERT INTO `padron` (`id`, `nombre`, `apellido`, `dni`, `voto`) VALUES
 (104, 'Mariano', 'Ríos', '33344455', 0),
 (105, 'Sol', 'Peralta', '44455566', 0),
 (106, 'Gabriel', 'Molina', '55566677', 0),
-(107, 'Julia', 'Ocampo', '66677788', 0),
+(107, 'Julia', 'Ocampo', '66677788', 1),
 (108, 'Lucas', 'Ferreyra', '77788899', 0),
 (109, 'Victoria', 'Aguirre', '88899900', 0),
 (110, 'Tomás', 'Silva', '99900011', 0),
 (111, 'Juana', 'Benítez', '1111222', 0),
 (112, 'Matías', 'Vega', '22223333', 0),
 (113, 'Rocío', 'Navarro', '33334444', 0),
-(114, 'Joaquín', 'Romero', '44445555', 0),
+(114, 'Joaquín', 'Romero', '44445555', 1),
 (115, 'Celeste', 'Gutiérrez', '55556666', 0),
 (116, 'Bruno', 'Mendez', '66667777', 0),
 (117, 'Silvina', 'López', '77778888', 0),
@@ -103,7 +103,14 @@ INSERT INTO `urna` (`id`, `bregman`, `bullrich`, `massa`, `milei`, `schiaretti`,
 (14, NULL, NULL, NULL, NULL, 1, NULL),
 (15, NULL, NULL, NULL, NULL, 1, NULL),
 (16, NULL, 1, NULL, NULL, NULL, NULL),
-(17, NULL, NULL, NULL, NULL, NULL, 1);
+(17, NULL, NULL, NULL, NULL, NULL, 1),
+(18, NULL, NULL, NULL, 1, NULL, NULL),
+(19, NULL, NULL, NULL, 1, NULL, NULL),
+(20, NULL, NULL, NULL, 1, NULL, NULL),
+(21, NULL, NULL, NULL, 1, NULL, NULL),
+(22, NULL, 1, NULL, NULL, NULL, NULL),
+(23, NULL, 1, NULL, NULL, NULL, NULL),
+(24, 1, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -136,7 +143,7 @@ ALTER TABLE `padron`
 -- AUTO_INCREMENT de la tabla `urna`
 --
 ALTER TABLE `urna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
