@@ -2,10 +2,15 @@
 
 $pagActual = basename($_SERVER['PHP_SELF']);
 
-function active($pagActual, $url)
-{
+function active($pagActual, $url) {
     echo ($pagActual == $url) ? "active" : "";
 }
+
+function disabled(bool $condicion) {
+    echo ($condicion) ? "disabled" : "";
+}
+
+
 
 ?>
 
@@ -14,7 +19,7 @@ function active($pagActual, $url)
 <html lang="es">
 
 <head>
-    <title>Elecciones 2</title>
+    <title>Elecciones 2023</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

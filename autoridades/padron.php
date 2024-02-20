@@ -39,9 +39,6 @@ $personas = $objConsultas->consultar("SELECT * FROM `padron` ORDER BY `apellido`
                         </tr>
                     <?php } ?>
                 </tbody>
-                <tfoot>
-
-                </tfoot>
             </table>
         </div>
 
