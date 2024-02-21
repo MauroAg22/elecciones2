@@ -5,15 +5,12 @@ if (!$_SESSION["login"]) {
     header("location:../autoridades");
 }
 
-include "../database/clases.php";
+include "../navbar/head-atd.php";
 
 $objConsultas = new consultas();
 $personas = $objConsultas->consultar("SELECT * FROM `padron` ORDER BY `apellido` ASC");
 
 ?>
-
-<?php include "../navbar/head-atd.php"; ?>
-
 
 <div class="row justify-content-center mt-5">
     <div class="col-lg-8 col-md-10">
@@ -46,10 +43,9 @@ $personas = $objConsultas->consultar("SELECT * FROM `padron` ORDER BY `apellido`
     </div>
 </div>
 
+<?php 
 
+$objConsultas->desconectar();
+include "../navbar/footer-atd.php"; 
 
-
-
-<?php $objConsultas->desconectar(); ?>
-
-<?php include "../navbar/footer-atd.php"; ?>
+?>

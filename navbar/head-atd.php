@@ -6,10 +6,10 @@ function active($pagActual, $url) {
     echo ($pagActual == $url) ? "active" : "";
 }
 
-function disabled(bool $condicion) {
-    echo ($condicion) ? "disabled" : "";
-}
+include "../database/clases.php";
 
+$objGestionElectoral = new GestionElectoral();
+$estadoVotaciones = $objGestionElectoral->getSeEstaVotando();
 
 
 ?>
@@ -46,7 +46,7 @@ function disabled(bool $condicion) {
                     <div class="navbar-nav">
                         <a class="nav-link fs-5 <?php active($pagActual, "gestion.php") ?>" href="gestion.php">Administración</a>
                         <a class="nav-link fs-5 <?php active($pagActual, "padron.php") ?>" href="padron.php">Padrón</a>
-                        <a class="nav-link fs-5 <?php active($pagActual, "resultados.php") ?>" href="resultados.php">Resultados</a>
+                        <a class="nav-link fs-5 <?php active($pagActual, "resultados.php") ?> <?php echo ($estadoVotaciones) ? "disabled" : "" ?>" href="resultados.php">Resultados</a>
                         <a class="nav-link fs-5" href="cerrar-session.php">Cerrar Sesión</a>
                     </div>
                 </div>

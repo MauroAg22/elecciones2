@@ -1,7 +1,19 @@
 <?php
 session_start();
 
+include "../database/clases.php";
+$objGestionElectoral = new GestionElectoral();
+$estadoVotaciones = $objGestionElectoral->getSeEstaVotando();
+
+if (!$estadoVotaciones) {
+    header("location:votaciones-cerradas.php");
+}
+
 if (isset($_SESSION["login"])) {
+    header("location:votar.php");
+}
+
+if (isset($_SESSION["votar"]) && $_SESSION["votar"]) {
     header("location:votar.php");
 }
 
@@ -31,7 +43,9 @@ if (isset($_SESSION["login"])) {
             </div>
             <?php
             if ($_POST) {
-                include "../database/clases.php";
+                if (!$estadoVotaciones) {
+                    header("location:votaciones-cerradas.php");
+                }
                 $objConsultas = new consultas();
                 $dni = $_POST["dni"];
                 $_SESSION["dni"] = $dni;

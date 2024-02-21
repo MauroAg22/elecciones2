@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-12-2023 a las 15:37:24
+-- Tiempo de generación: 20-02-2024 a las 17:44:35
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -41,8 +41,8 @@ CREATE TABLE `padron` (
 
 INSERT INTO `padron` (`id`, `nombre`, `apellido`, `dni`, `voto`) VALUES
 (1, 'Mauro Agustín', 'Lucero', '40319143', 1),
-(3, 'Nerio Fernando', 'Lucero', '18206248', 1),
-(84, 'Juan', 'Perez', '12345678', 1),
+(3, 'Nerio Fernando', 'Lucero', '18206248', 0),
+(84, 'Juan', 'Perez', '12345678', 0),
 (85, 'María', 'González', '23456789', 0),
 (86, 'Carlos', 'López', '34567890', 0),
 (87, 'Laura', 'Martínez', '45678901', 0),
@@ -51,28 +51,28 @@ INSERT INTO `padron` (`id`, `nombre`, `apellido`, `dni`, `voto`) VALUES
 (90, 'Martín', 'Gómez', '78901234', 0),
 (91, 'Luisa', 'Díaz', '89012345', 0),
 (92, 'Diego', 'Hernández', '90123456', 0),
-(93, 'Valentina', 'Suárez', '11223344', 1),
-(94, 'Sebastián', 'Ramírez', '22334455', 1),
-(95, 'Camila', 'Torres', '33445566', 1),
-(96, 'Facundo', 'Cabrera', '44556677', 1),
-(97, 'Agustina', 'Sánchez', '55667788', 1),
+(93, 'Valentina', 'Suárez', '11223344', 0),
+(94, 'Sebastián', 'Ramírez', '22334455', 0),
+(95, 'Camila', 'Torres', '33445566', 0),
+(96, 'Facundo', 'Cabrera', '44556677', 0),
+(97, 'Agustina', 'Sánchez', '55667788', 0),
 (98, 'Ezequiel', 'Moreno', '66778899', 0),
 (99, 'Catalina', 'Luna', '77889900', 0),
 (100, 'Ignacio', 'Giménez', '88990011', 0),
 (101, 'Paula', 'Vargas', '99001122', 0),
-(102, 'Alejandro', 'Ortiz', '11122233', 1),
+(102, 'Alejandro', 'Ortiz', '11122233', 0),
 (103, 'Lucía', 'Castro', '22233344', 0),
 (104, 'Mariano', 'Ríos', '33344455', 0),
 (105, 'Sol', 'Peralta', '44455566', 0),
 (106, 'Gabriel', 'Molina', '55566677', 0),
-(107, 'Julia', 'Ocampo', '66677788', 1),
+(107, 'Julia', 'Ocampo', '66677788', 0),
 (108, 'Lucas', 'Ferreyra', '77788899', 0),
 (109, 'Victoria', 'Aguirre', '88899900', 0),
 (110, 'Tomás', 'Silva', '99900011', 0),
 (111, 'Juana', 'Benítez', '1111222', 0),
 (112, 'Matías', 'Vega', '22223333', 0),
 (113, 'Rocío', 'Navarro', '33334444', 0),
-(114, 'Joaquín', 'Romero', '44445555', 1),
+(114, 'Joaquín', 'Romero', '44445555', 0),
 (115, 'Celeste', 'Gutiérrez', '55556666', 0),
 (116, 'Bruno', 'Mendez', '66667777', 0),
 (117, 'Silvina', 'López', '77778888', 0),
@@ -100,17 +100,26 @@ CREATE TABLE `urna` (
 --
 
 INSERT INTO `urna` (`id`, `bregman`, `bullrich`, `massa`, `milei`, `schiaretti`, `blanco`) VALUES
-(14, NULL, NULL, NULL, NULL, 1, NULL),
-(15, NULL, NULL, NULL, NULL, 1, NULL),
-(16, NULL, 1, NULL, NULL, NULL, NULL),
-(17, NULL, NULL, NULL, NULL, NULL, 1),
-(18, NULL, NULL, NULL, 1, NULL, NULL),
-(19, NULL, NULL, NULL, 1, NULL, NULL),
-(20, NULL, NULL, NULL, 1, NULL, NULL),
-(21, NULL, NULL, NULL, 1, NULL, NULL),
-(22, NULL, 1, NULL, NULL, NULL, NULL),
-(23, NULL, 1, NULL, NULL, NULL, NULL),
-(24, 1, NULL, NULL, NULL, NULL, NULL);
+(32, NULL, NULL, NULL, NULL, 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `votacion`
+--
+
+CREATE TABLE `votacion` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `estado` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `votacion`
+--
+
+INSERT INTO `votacion` (`id`, `nombre`, `estado`) VALUES
+(1, 'en votacion', 0);
 
 --
 -- Índices para tablas volcadas
@@ -130,6 +139,12 @@ ALTER TABLE `urna`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `votacion`
+--
+ALTER TABLE `votacion`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -143,7 +158,13 @@ ALTER TABLE `padron`
 -- AUTO_INCREMENT de la tabla `urna`
 --
 ALTER TABLE `urna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT de la tabla `votacion`
+--
+ALTER TABLE `votacion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

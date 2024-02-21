@@ -20,6 +20,7 @@ if ($_POST) {
     session_start();
     
     $_SESSION["success"] = true;
+    unset($_SESSION["votar"]);
     header("location:success.php");
 }
 

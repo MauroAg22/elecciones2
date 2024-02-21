@@ -5,7 +5,13 @@ if (!$_SESSION["login"]) {
     header("location:../autoridades");
 }
 
-include "../database/clases.php";
+include "../navbar/head-atd.php";
+$objGestionElectoral = new GestionElectoral();
+$estadoVotaciones = $objGestionElectoral->getSeEstaVotando();
+
+if ($estadoVotaciones) {
+    header("location:../autoridades");
+}
 
 $objCandidatos = new candidatos();
 
@@ -14,8 +20,6 @@ function resultadoVotosTexto($cantVotos) {
 }
 
 ?>
-
-<?php include "../navbar/head-atd.php"; ?>
 
 
 <div class="container card border-secondary mt-5">
@@ -30,7 +34,7 @@ function resultadoVotosTexto($cantVotos) {
                             <div class="progress-bar bg-success" role="progressbar" aria-label="Example 20px label" style="width: <?php echo $objCandidatos->promedioVotosBregman; ?>%;" aria-valuenow="<?php echo $objCandidatos->promedioVotosBregman; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div style="width: 100%;" class="d-flex justify-content-evenly fs-5 user-select-none mt-2">
-                            <span> <?php echo $objCandidatos->promedioVotosBregman; ?>% </span>
+                            <span> <?php echo floatval($objCandidatos->promedioVotosBregman); ?> % </span>
                             <span> <?php echo $objCandidatos->resultadoVotosTexto($objCandidatos->cantVotosBregman); ?> </span>
                         </div>
                     </div>
@@ -42,7 +46,7 @@ function resultadoVotosTexto($cantVotos) {
                             <div class="progress-bar bg-success" role="progressbar" aria-label="Example 20px label" style="width: <?php echo $objCandidatos->promedioVotosBullrich; ?>%;" aria-valuenow="<?php echo $objCandidatos->promedioVotosBullrich; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div style="width: 100%;" class="d-flex justify-content-evenly fs-5 user-select-none mt-2">
-                            <span> <?php echo $objCandidatos->promedioVotosBullrich; ?>% </span>
+                            <span> <?php echo floatval($objCandidatos->promedioVotosBullrich); ?> % </span>
                             <span> <?php echo $objCandidatos->resultadoVotosTexto($objCandidatos->cantVotosBullrich); ?> </span>
                         </div>
                     </div>
@@ -54,7 +58,7 @@ function resultadoVotosTexto($cantVotos) {
                             <div class="progress-bar bg-success" role="progressbar" aria-label="Example 20px label" style="width: <?php echo $objCandidatos->promedioVotosMassa; ?>%;" aria-valuenow="<?php echo $objCandidatos->promedioVotosMassa; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div style="width: 100%;" class="d-flex justify-content-evenly fs-5 user-select-none mt-2">
-                            <span> <?php echo $objCandidatos->promedioVotosMassa; ?>% </span>
+                            <span> <?php echo floatval($objCandidatos->promedioVotosMassa); ?> % </span>
                             <span> <?php echo $objCandidatos->resultadoVotosTexto($objCandidatos->cantVotosMassa); ?> </span>
                         </div>
                     </div>
@@ -66,7 +70,7 @@ function resultadoVotosTexto($cantVotos) {
                             <div class="progress-bar bg-success" role="progressbar" aria-label="Example 20px label" style="width: <?php echo $objCandidatos->promedioVotosMilei; ?>%;" aria-valuenow="<?php echo $objCandidatos->promedioVotosMilei; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div style="width: 100%;" class="d-flex justify-content-evenly fs-5 user-select-none mt-2">
-                            <span> <?php echo $objCandidatos->promedioVotosMilei; ?>% </span>
+                            <span> <?php echo floatval($objCandidatos->promedioVotosMilei); ?> % </span>
                             <span> <?php echo $objCandidatos->resultadoVotosTexto($objCandidatos->cantVotosMilei); ?> </span>
                         </div>
                     </div>
@@ -78,7 +82,7 @@ function resultadoVotosTexto($cantVotos) {
                             <div class="progress-bar bg-success" role="progressbar" aria-label="Example 20px label" style="width: <?php echo $objCandidatos->promedioVotosSchiaretti; ?>%;" aria-valuenow="<?php echo $objCandidatos->promedioVotosSchiaretti; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div style="width: 100%;" class="d-flex justify-content-evenly fs-5 user-select-none mt-2">
-                            <span> <?php echo $objCandidatos->promedioVotosSchiaretti; ?>% </span>
+                            <span> <?php echo floatval($objCandidatos->promedioVotosSchiaretti); ?> % </span>
                             <span> <?php echo $objCandidatos->resultadoVotosTexto($objCandidatos->cantVotosSchiaretti); ?> </span>
                         </div>
                     </div>
@@ -90,7 +94,7 @@ function resultadoVotosTexto($cantVotos) {
                             <div class="progress-bar bg-success" role="progressbar" aria-label="Example 20px label" style="width: <?php echo $objCandidatos->promedioVotosBlanco; ?>%;" aria-valuenow="<?php echo $objCandidatos->promedioVotosBlanco; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div style="width: 100%;" class="d-flex justify-content-evenly fs-5 user-select-none mt-2">
-                            <span> <?php echo $objCandidatos->promedioVotosBlanco; ?>% </span>
+                            <span> <?php echo floatval($objCandidatos->promedioVotosBlanco); ?> % </span>
                             <span> <?php echo $objCandidatos->resultadoVotosTexto($objCandidatos->cantVotosBlanco); ?> </span>
                         </div>
                     </div>
@@ -100,9 +104,8 @@ function resultadoVotosTexto($cantVotos) {
     </div>
 </div>
 
+<?php 
 
+$objCandidatos->desconectar();
 
-
-<?php $objCandidatos->desconectar(); ?>
-
-<?php include "../navbar/footer-atd.php"; ?>
+include "../navbar/footer-atd.php";
