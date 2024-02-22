@@ -32,7 +32,7 @@ if (isset($_SESSION["votar"]) && $_SESSION["votar"]) {
                     <div class="container d-grid gap-1 mb-3">
                         <div>
                             <label for="dni" class="form-label user-select-none">Ingresar DNI</label>
-                            <input type="text" class="form-control" name="dni" id="dni" aria-describedby="helpId" pattern="^[1-9][0-9]{6,7}$" autocomplete="off" required>
+                            <input type="text" value="<?php echo ($_POST) ? $_POST["dni"] : "" ?>" class="form-control" name="dni" id="dni" aria-describedby="helpId" pattern="^[1-9][0-9]{6,7}$" autocomplete="off" required>
                             <small id="helpId" class="form-text text-muted user-select-none">ej: 12345678</small>
                         </div>
                         <div class="d-grid gap-2 pt-3">

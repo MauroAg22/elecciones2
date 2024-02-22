@@ -41,7 +41,7 @@ $blanco->setPromedioVotos($totalVotos);
 ?>
 
 
-<div class="container card border-secondary mt-5">
+<div class="container card border-secondary">
     <div class="card-body">
         <h3 class="card-title user-select-none">Resultados de las votaciones.</h3>
         <div class="container">

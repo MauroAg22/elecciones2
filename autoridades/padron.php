@@ -13,7 +13,7 @@ $contador = 1;
 
 ?>
 
-<div class="row justify-content-center mt-5">
+<div class="row justify-content-center">
     <div class="col-lg-8 col-md-10">
 
         <div class="table-responsive">

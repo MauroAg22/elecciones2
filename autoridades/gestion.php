@@ -10,7 +10,7 @@ if (!$_SESSION["login"]) {
 <?php include "../navbar/head-atd.php"; ?>
 
 
-<div class="row justify-content-center align-items-center mt-5">
+<div class="row justify-content-center align-items-center">
     <div class="col-lg-8 col-md-10">
         <div class="row">
             <div class="col mt-3">

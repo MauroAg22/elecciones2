@@ -55,4 +55,4 @@ $estadoVotaciones = $objGestionElectoral->getSeEstaVotando();
     </header>
 
     <main>
-        <div class="container main pb-5">
+        <div class="container main py-5">
