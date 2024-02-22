@@ -9,6 +9,7 @@ include "../navbar/head-atd.php";
 
 $objConsultas = new consultas();
 $personas = $objConsultas->consultar("SELECT * FROM `padron` ORDER BY `apellido` ASC");
+$contador = 1;
 
 ?>
 
@@ -16,10 +17,11 @@ $personas = $objConsultas->consultar("SELECT * FROM `padron` ORDER BY `apellido`
     <div class="col-lg-8 col-md-10">
 
         <div class="table-responsive">
-            <table class="table table-striped table-hover table-borderless table-primary align-middle text-center">
+            <table class="table table-striped table-primary align-middle text-center">
                 <thead class="table-light">
                     <caption>PADRÓN ELECTORAL 2023</caption>
-                    <tr class="fs-5">
+                    <tr class="fs-6" style="cursor: default">
+                        <th>Orden</th>
                         <th>Apellidos</th>
                         <th>Nombres</th>
                         <th>DNI</th>
@@ -28,13 +30,17 @@ $personas = $objConsultas->consultar("SELECT * FROM `padron` ORDER BY `apellido`
                 </thead>
                 <tbody class="table-group-divider border">
                     <?php foreach ($personas as $persona) { ?>
-                        <tr class="table-light fs-5">
+                        <tr class="table-light fs-6" style="cursor: default">
+                            <td> <?php echo $contador; ?> </td>
                             <td> <?php echo $persona["apellido"]; ?> </td>
                             <td> <?php echo $persona["nombre"]; ?> </td>
                             <td> <?php echo number_format($persona["dni"], 0, '', '.'); ?> </td>
                             <td> <?php echo $persona["voto"] == 1 ? "SI" : "NO" ?> </td>
                         </tr>
-                    <?php } ?>
+                    <?php 
+                    $contador += 1;
+                    } 
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -46,6 +52,4 @@ $personas = $objConsultas->consultar("SELECT * FROM `padron` ORDER BY `apellido`
 <?php 
 
 $objConsultas->desconectar();
-include "../navbar/footer-atd.php"; 
-
-?>
+include "../navbar/footer-atd.php";

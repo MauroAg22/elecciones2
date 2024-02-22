@@ -36,7 +36,7 @@ $estadoVotaciones = $objGestionElectoral->getSeEstaVotando();
 
 <body>
     <header id="miHeader">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
                 <!-- <a class="navbar-brand fs-4" href="gestion.php">Gestión Electoral</a> -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,4 +55,4 @@ $estadoVotaciones = $objGestionElectoral->getSeEstaVotando();
     </header>
 
     <main>
-        <div class="container main pt-5 pb-5">
+        <div class="container main pb-5">

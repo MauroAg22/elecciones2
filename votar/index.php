@@ -49,7 +49,17 @@ if (isset($_SESSION["votar"]) && $_SESSION["votar"]) {
                 $objConsultas = new consultas();
                 $dni = $_POST["dni"];
                 $_SESSION["dni"] = $dni;
-                $objConsultas->alertaPuedeVotar($dni);
+
+                if ($objConsultas->esta_dni($dni)) {
+                    if (!($objConsultas->voto_dni($dni))) {
+                        include "../votar/puede-votar.php";
+                    } else {
+                        include "../votar/ya-voto.php";
+                    }
+                } else {
+                    include "../votar/no-puede-votar.php";
+                }
+
                 $objConsultas->desconectar();
             }
             ?>

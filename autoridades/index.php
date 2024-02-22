@@ -16,6 +16,7 @@ if ($_POST) {
         $_SESSION["contrasenia"] = $contrasenia;
         $_SESSION["login"] = true;
         header("location:gestion.php");
+        exit;
     }
 }
 

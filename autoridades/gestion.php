@@ -37,6 +37,5 @@ if (!$_SESSION["login"]) {
 
 <?php 
 
-$objGestionElectoral->desconectar();
 include "../navbar/footer-atd.php"; 
 

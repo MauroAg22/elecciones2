@@ -28,3 +28,5 @@
 </body>
 
 </html>
+
+<?php $objGestionElectoral->desconectar();
